@@ -1,0 +1,14 @@
+/* Force exactly 2 columns on mobile, even below 330px */
+@media (max-width: 767px) {
+  .service-display-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    justify-content: center !important;
+  }
+
+  .service-display-list > * {
+    width: 100%;
+    max-width: none !important;
+  }
+}
