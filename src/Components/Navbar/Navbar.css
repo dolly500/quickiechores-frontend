@@ -1,0 +1,649 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+  padding: 15px 40px;
+}
+
+.navbar .logo {
+  width: 125px;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: none; /* Hidden on mobile by default */
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Desktop Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: #1a237e;
+  background-color: rgba(26, 35, 126, 0.1);
+}
+
+.nav-links a.active {
+  color: #1a237e;
+  background-color: rgba(26, 35, 126, 0.15);
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background-color: #1a237e;
+  border-radius: 1px;
+}
+
+/* Desktop Auth Buttons */
+.desktop-auth {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.auth-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.provider-btn {
+  background: linear-gradient(135deg, #800080, #a020f0);
+  color: white;
+}
+
+.provider-btn:hover {
+  background: linear-gradient(135deg, #a020f0, #800080);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(128, 0, 128, 0.3);
+}
+
+.customer-btn {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+  color: white;
+}
+
+.customer-btn:hover {
+  background: linear-gradient(135deg, #44a08d, #4ecdc4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+}
+
+/* Desktop Profile Dropdown */
+.desktop-profile {
+  position: relative;
+}
+
+.profile-dropdown {
+  position: relative;
+}
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+}
+
+.profile-trigger:hover {
+  background-color: #e8e8e8;
+  border-color: #d0d0d0;
+}
+
+.profile-trigger img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.profile-trigger span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.profile-dropdown-content {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.profile-dropdown:hover .profile-dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.profile-dropdown-content .profile-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-dropdown-content .profile-item:last-child {
+  border-bottom: none;
+}
+
+.profile-dropdown-content .profile-item:hover {
+  background-color: #f8f9fa;
+}
+
+.profile-dropdown-content .profile-item.logout:hover {
+  background-color: rgba(255, 23, 68, 0.1);
+  color: #ff1744;
+}
+
+.profile-dropdown-content .profile-item img {
+  width: 16px;
+  height: 16px;
+}
+
+.profile-dropdown-content .profile-item p {
+  font-size: 14px;
+  margin: 0;
+  color: #333;
+}
+
+.profile-dropdown-content .profile-item.logout p {
+  color: inherit;
+}
+
+/* Hamburger Menu Button - Show on mobile */
+.hamburger-menu {
+  cursor: pointer;
+  z-index: 1001;
+  display: block;
+  padding: 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  width: 28px;
+  height: 22px;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9.5px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* Menu Overlay - Mobile */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70vh;
+  height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 70%;
+  padding: 40px 10px 40px;
+  text-align: center;
+}
+
+/* Navigation Links in Mobile Menu */
+.menu-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.menu-navigation a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  padding: 7px 14px;
+  border-radius: 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-navigation a:hover,
+.menu-navigation a.active {
+  color: #64b5f6;
+  background-color: rgba(100, 181, 246, 0.1);
+}
+
+/* User Section in Mobile Menu */
+.menu-user-section {
+  width: 100%;
+  max-width: 400px;
+  margin-top: auto;
+}
+
+.menu-profile {
+  color: white;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  padding: 16px;
+  border: 2px solid #444;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.profile-header img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.profile-header span {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-menu .profile-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  justify-content: flex-start;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.profile-menu .profile-item:hover,
+.profile-menu .profile-item:active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-menu .profile-item.logout:hover,
+.profile-menu .profile-item.logout:active {
+  background-color: rgba(255, 23, 68, 0.15);
+  color: #ff1744;
+}
+
+.profile-menu .profile-item img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.profile-menu .profile-item p {
+  font-size: 14px;
+  margin: 0;
+  text-align: left;
+}
+
+/* Auth Buttons in Mobile Menu */
+.menu-auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.menu-auth-buttons button {
+  font-size: 14px;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+}
+
+.menu-auth-buttons button:first-child {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+}
+
+.menu-auth-buttons button:first-child:active {
+  background: linear-gradient(135deg, #44a08d, #4ecdc4);
+  transform: scale(0.98);
+}
+
+.menu-auth-buttons button:last-child {
+  background: linear-gradient(135deg, #800080, #a020f0);
+}
+
+.menu-auth-buttons button:last-child:active {
+  background: linear-gradient(135deg, #a020f0, #800080);
+  transform: scale(0.98);
+}
+
+/* Desktop Breakpoints */
+@media (min-width: 1024px) {
+  .desktop-nav {
+    display: flex; /* Show desktop nav on desktop */
+  }
+  
+  .hamburger-menu {
+    display: none; /* Hide hamburger on desktop */
+  }
+}
+
+/* Tablet Adjustments */
+@media (max-width: 1023px) and (min-width: 601px) {
+  .navbar {
+    padding: 15px 30px;
+  }
+  
+  .navbar .logo {
+    width: 110px;
+  }
+  
+  .menu-navigation {
+    gap: 24px;
+    margin-bottom: 45px;
+  }
+  
+  .menu-navigation a {
+    font-size: 22px;
+    padding: 14px 24px;
+  }
+  
+  .profile-header {
+    padding: 18px;
+  }
+  
+  .profile-header img {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .profile-header span {
+    font-size: 19px;
+  }
+  
+  .profile-menu .profile-item {
+    padding: 15px 20px;
+  }
+  
+  .menu-auth-buttons {
+    max-width: 360px;
+  }
+  
+  .menu-auth-buttons button {
+    font-size: 17px;
+    padding: 15px 30px;
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 12px 16px;
+  }
+  
+  .navbar .logo {
+    width: 95px;
+  }
+  
+  .hamburger-menu {
+    padding: 6px;
+  }
+  
+  .hamburger {
+    width: 26px;
+    height: 20px;
+  }
+  
+  .hamburger span {
+    height: 2.5px;
+  }
+  
+  .menu-content {
+    padding: 90px 16px 50px;
+  }
+  
+  .menu-navigation {
+    gap: 16px;
+    margin-bottom: 35px;
+  }
+  
+  .menu-navigation a {
+    font-size: 18px;
+    padding: 11px 16px;
+  }
+  
+  .profile-header {
+    padding: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-header img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .profile-header span {
+    font-size: 16px;
+  }
+  
+  .profile-menu {
+    gap: 6px;
+  }
+  
+  .profile-menu .profile-item {
+    padding: 12px 14px;
+  }
+  
+  .profile-menu .profile-item img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .profile-menu .profile-item p {
+    font-size: 15px;
+  }
+  
+  .menu-auth-buttons {
+    gap: 14px;
+    max-width: 280px;
+  }
+  
+  .menu-auth-buttons button {
+    font-size: 15px;
+    padding: 13px 24px;
+  }
+}
+
+/* Extra Small Mobile Devices */
+@media (max-width: 380px) {
+  .navbar {
+    padding: 10px 12px;
+  }
+  
+  .navbar .logo {
+    width: 85px;
+  }
+  
+  .menu-content {
+    padding: 80px 12px 40px;
+  }
+  
+  .menu-navigation a {
+    font-size: 17px;
+    padding: 10px 14px;
+  }
+  
+  .profile-header {
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .profile-header img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .profile-header span {
+    font-size: 15px;
+  }
+  
+  .profile-menu .profile-item {
+    padding: 11px 12px;
+    gap: 10px;
+  }
+  
+  .profile-menu .profile-item img {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .profile-menu .profile-item p {
+    font-size: 14px;
+  }
+  
+  .menu-auth-buttons {
+    max-width: 260px;
+  }
+  
+  .menu-auth-buttons button {
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+}
+
+/* Animation for smooth menu transitions */
+@media (prefers-reduced-motion: no-preference) {
+  .menu-overlay {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .menu-content {
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .menu-overlay.active .menu-content {
+    transform: translateY(0);
+  }
+}
+
+/* Prevent body scroll when menu is open */
+body:has(.menu-overlay.active) {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* Hide the original navbar classes */
+.navbar-menu {
+  display: none;
+}
+
+.navbar-right {
+  display: none;
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .menu-navigation a:active,
+  .profile-menu .profile-item:active {
+    transform: scale(0.98);
+  }
+  
+  .menu-auth-buttons button:active {
+    transform: scale(0.96);
+  }
+}
